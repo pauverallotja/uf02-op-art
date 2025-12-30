@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OP ART — contacte</title>
+
+  <meta name="description" content="Web divulgativa sobre Op Art i art cinètic: principis, artistes i il·lusions interactives accessibles." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="page-contact">
+
+<header class="site-header" role="banner">
+  <a class="skip-link" href="#main">Saltar al contingut</a>
+
+  <div class="container nav-wrap">
+    <!-- BOTÓN HAMBURGUESA (solo móvil) -->
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Obrir menú"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+    >
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+
+    <!-- LOGO -->
+    <a class="logo" href="index.html" aria-label="Inici — torna a la pàgina principal">
+      <img src="assets/img/Logonegro.svg" alt="Patró geomètric 1">
+    </a>
+
+    <!-- NAV DESKTOP -->
+    <nav class="site-nav" aria-label="Navegació principal">
+      <ul>
+        <li>
+          <a href="index.html" data-current="home">Inici</a>
+        </li>
+        <li>
+          <a
+            href="contingut/index.html"
+            data-current="contingut"
+            aria-label="Contingut — principis, artistes i il·lusions interactives"
+          >
+            Contingut
+          </a>
+        </li>
+        <li>
+          <!-- 👇 AQUÍ ESTÁ LA CLAVE -->
+          <a
+            href="contacte.html"
+            aria-current="page"
+            data-current="contacte"
+          >
+            Contacte
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- CTA DESKTOP -->
+    <a
+      class="btn btn-cta"
+      href="contingut/demos.html"
+      aria-label="Obrir pàgina de demos interactives"
+    >
+      Prova una demo
+    </a>
+  </div>
+
+  <!-- MENÚ MÓVIL -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a class="mobile-link" href="index.html">Inici</a>
+      <a class="mobile-link" href="contingut/index.html">Contingut</a>
+
+      <!-- También marcado correctamente -->
+      <a
+        class="mobile-link"
+        href="contacte.html"
+        aria-current="page"
+      >
+        Contacte
+      </a>
+
+      <div class="mobile-actions">
+        <a class="footer-btn footer-btn-ghost" href="contingut/demos.html">
+          Prova una demo
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACKDROP -->
+  <div class="mobile-backdrop" aria-hidden="true"></div>
+</header>
+
+<main id="main" class="site-main">
+  <section class="contact-hero" aria-labelledby="contactTitle">
+    <div class="contact-container">
+      <div class="contact-grid">
+        <!-- TARJETA FORM -->
+        <div class="contact-card">
+          <h1 id="contactTitle" class="contact-title">CONTACT</h1>
+
+          <form id="contactForm" class="form contact-form" method="post" action="#contactForm">
+
+            <div class="field">
+              <label for="name">First name</label>
+              <input id="name" name="name" type="text" required aria-describedby="error-name" />
+              <p id="error-name" class="form-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" required aria-describedby="error-email" />
+              <p id="error-email" class="form-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="topic">Topic</label>
+              <select id="topic" name="topic" required aria-describedby="error-topic">
+                <option value="">Select an option</option>
+                <option>Consulta</option>
+                <option>Suggeriment</option>
+                <option>Altres</option>
+              </select>
+              <p id="error-topic" class="form-error" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required aria-describedby="error-message"></textarea>
+              <p id="error-message" class="form-error" hidden></p>
+            </div>
+
+            <div class="field checkbox">
+              <input id="consent" name="consent" type="checkbox" required />
+<label for="consent">Accepto la <a href="privacitat.html">política de privacitat</a>.</label>
+            </div>
+
+            <div class="actions">
+              <button class="btn btn-primary" type="submit">Send</button>
+            </div>
+
+            <p id="formStatus" class="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <!-- IMAGEN LATERAL -->
+        <figure class="contact-side" aria-hidden="true">
+          <img src="assets/img/ilusion optica vertical.png" alt="" loading="lazy" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits-section" aria-labelledby="benefits-title">
+        <h2 id="benefits-title" class="sr-only">Beneficis del projecte</h2>
+        <div class="benefits-grid">
+          
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <img src="assets/img/info.svg" alt="Inmersió">
+            </div>
+            <h3>Inmersió Total</h3>
+            <p>Descobreix l'art cinètic a través d'una experiència visual única i dinàmica.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <img src="assets/img/Navegació.svg" alt="Educació">
+            </div>
+            <h3>Aprenentatge Actiu</h3>
+            <p>Entén els principis de la percepció visual amb contingut divulgatiu rigorós.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <img src="assets/img/Contrast i freqüència icono.svg" alt="Interactiva">
+            </div>
+            <h3>Demos Interactives</h3>
+            <p>Experimenta tu mateix amb els patrons i genera les teves pròpies il·lusions.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon">
+              <img src="assets/img/seguridad.svg" alt="Accessibilitat">
+            </div>
+            <h3>Disseny Universal</h3>
+            <p>Contingut optimitzat per a una navegació clara, accessible i moderna.</p>
+          </article>
+
+        </div>
+      </section>
+</main>
+
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-bg-text" aria-hidden="true">OP ART</div>
+
+  <div class="container footer-wrap">
+    <div class="footer-top">
+      <div class="footer-col footer-brand">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="assets/img/info.svg" alt="" loading="lazy">
+          <p class="footer-kicker">Projecte divulgatiu</p>
+        </div>
+
+        <p class="footer-lead">
+          Projecte divulgatiu d’Op Art. Patrons i codi © Pau Vera.
+        </p>
+      </div>
+
+      <nav class="footer-col footer-nav" aria-label="Navegació peu">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="assets/img/Navegació.svg" alt="" loading="lazy">
+          <p class="footer-title">Navegació</p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="index.html">Inici</a></li>
+          <li><a href="contingut/index.html">Contingut</a></li>
+          <li><a href="contacte.html">Contacte</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col footer-legal" aria-label="Enllaços legals">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="assets/img/seguridad.svg" alt="" loading="lazy">
+          <p class="footer-title">Legal</p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="privacitat.html">Privacitat</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col footer-contact">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="assets/img/mail.svg" alt="" loading="lazy">
+          <p class="footer-title">Contacte</p>
+        </div>
+
+        <p class="footer-mini">
+          Tens dubtes o vols col·laborar?
+        </p>
+
+        <div class="footer-actions">
+          <a class="footer-btn footer-btn-ghost" href="contacte.html#contactForm"
+>Demana cita</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <img class="llotja-logo" src="assets/img/llotja.svg" loading="lazy" alt="Logo Llotja" />
+      </div>
+
+      <nav class="footer-socials" aria-label="Redes sociales">
+        <a class="social-link" href="#" title="YouTube"><img src="assets/img/social/yt.svg" alt="YouTube"></a>
+        <a class="social-link" href="#" title="Instagram"><img src="assets/img/social/ig.svg" alt="Instagram"></a>
+        <a class="social-link" href="#" title="Facebook"><img src="assets/img/social/fb.svg" alt="Facebook"></a>
+        <a class="social-link" href="#" title="X (Twitter)"><img src="assets/img/social/x.svg" alt="X (Twitter)"></a>
+        <a class="social-link" href="#" title="LinkedIn"><img src="assets/img/social/linkedin.svg" alt="LinkedIn"></a>
+      </nav>
+
+      <a class="footer-topbtn" href="#top" aria-label="Tornar a dalt">↑</a>
+    </div>
+  </div>
+</footer>
+
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

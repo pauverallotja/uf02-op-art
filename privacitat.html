@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OP ART — privacitat</title>
+
+<meta name="description" content="Web divulgativa sobre Op Art i art cinètic: principis, artistes i il·lusions interactives accessibles." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css" />
+
+</head>
+<body data-section="home">
+
+<header class="site-header" role="banner">
+  <a class="skip-link" href="#main">Saltar al contingut</a>
+
+  <div class="container nav-wrap">
+    <!-- BOTÓN HAMBURGUESA (solo móvil) -->
+    <button class="nav-toggle" type="button" aria-label="Obrir menú" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+
+    <!-- LOGO -->
+    <a class="logo" href="index.html" aria-label="Inici — torna a la pàgina principal">
+      <img src="assets/img/Logonegro.svg" alt="Patró geomètric 1">
+    </a>
+
+    <!-- NAV DESKTOP (se oculta en móvil) -->
+    <nav class="site-nav" aria-label="Navegació principal">
+      <ul>
+        <li><a href="index.html" aria-current="page" data-current="home">Inici</a></li>
+        <li><a href="contingut/index.html" data-current="contingut" aria-label="Contingut — principis, artistes i il·lusions interactives">Contingut</a></li>
+        <li><a href="contacte.html" data-current="contacte">Contacte</a></li>
+      </ul>
+    </nav>
+
+    <!-- CTA DESKTOP (se oculta en móvil) -->
+    <a class="btn btn-cta" href="contingut/demos.html" aria-label="Obrir pàgina de demos interactives">Prova una demo</a>
+  </div>
+
+  <!-- PANEL MÓVIL (100vw x 50vh) -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a class="mobile-link" href="index.html">Inici</a>
+      <a class="mobile-link" href="contingut/index.html">Contingut</a>
+      <a class="mobile-link" href="contacte.html">Contacte</a>
+
+      <div class="mobile-actions">
+        <a class="footer-btn footer-btn-ghost" href="contingut/demos.html">Prova una demo</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACKDROP (click fuera = cerrar) -->
+  <div class="mobile-backdrop" aria-hidden="true"></div>
+</header>
+
+<main id="main" class="site-main container">
+  <nav aria-label="Fil d’Ariadna" class="breadcrumbs">
+    <a href="index.html">Inici</a> › <span aria-current="page">Privacitat</span>
+  </nav>
+
+  <h1>Política de privacitat</h1>
+
+  <section class="section">
+    <h2>Avís important</h2>
+    <p>
+      Aquest lloc web és un <strong>projecte acadèmic</strong> (UF02 — Llenguatge de Programació).
+      El formulari s’ha creat per demostrar <strong>usabilitat, accessibilitat i validació</strong>.
+      Si el lloc s’allotja en un entorn de demostració, no té finalitat comercial.
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="privacitat-responsable">
+    <h2 id="privacitat-responsable">Responsable del tractament</h2>
+    <dl>
+      <dt>Responsable</dt>
+      <dd>Pau Vera (projecte acadèmic)</dd>
+
+      <dt>Contacte</dt>
+      <dd>
+        Mitjançant el formulari de contacte del lloc:
+        <a href="contacte.html#contactForm">contacte.html#contactForm</a>
+      </dd>
+    </dl>
+  </section>
+
+  <section class="section" aria-labelledby="privacitat-finalitat">
+    <h2 id="privacitat-finalitat">Finalitat i base legal</h2>
+    <ul>
+      <li>
+        <strong>Finalitat:</strong> gestionar consultes enviades des del formulari (nom, email, tema i missatge)
+        i mostrar un feedback de validació/confirmació.
+      </li>
+      <li>
+        <strong>Base legal:</strong> el <strong>consentiment</strong> de l’usuari/ària (checkbox de consentiment).
+      </li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="privacitat-dades">
+    <h2 id="privacitat-dades">Quines dades es recullen</h2>
+    <ul>
+      <li>Nom</li>
+      <li>Correu electrònic</li>
+      <li>Tema</li>
+      <li>Missatge</li>
+    </ul>
+  </section>
+
+  <section class="section" aria-labelledby="privacitat-conservacio">
+    <h2 id="privacitat-conservacio">Conservació i destinataris</h2>
+    <p>
+      En aquesta versió del projecte, el formulari està pensat com a <strong>simulació de front-end</strong>
+      (validació en client). Per defecte, <strong>no es transfereixen dades a tercers</strong>.
+      Si en una versió publicada s’afegeix enviament real (p. ex. correu o servidor), aquesta política s’haurà
+      d’actualitzar indicant el proveïdor i el període de conservació.
+    </p>
+  </section>
+
+  <section class="section" aria-labelledby="privacitat-drets">
+    <h2 id="privacitat-drets">Drets de les persones usuàries</h2>
+    <p>
+      Pots sol·licitar <strong>accés</strong>, <strong>rectificació</strong>, <strong>supressió</strong>,
+      <strong>oposició</strong> o <strong>limitació</strong> del tractament mitjançant el formulari de contacte.
+      També pots retirar el consentiment en qualsevol moment.
+    </p>
+  </section>
+
+  <hr class="sep" />
+
+  <section class="section" id="credits" aria-labelledby="credits-h2">
+    <h2 id="credits-h2">Crèdits, fonts i llicències</h2>
+
+    <p>
+      <strong>Textos del web:</strong> redactats per l’alumne/a a partir de fonts consultades.
+      La informació s’ha <strong>parafrasejat</strong>, s’han <strong>canviat paraules</strong> i s’ha
+      <strong>ajustat la redacció</strong> per fer-la més clara i llegible. No s’han copiat blocs de text de forma íntegra.
+    </p>
+
+    <h3>Fonts consultades per al contingut (resum i suport)</h3>
+    <ul>
+      <li>
+        <strong>Tate — “Op art”</strong>: descriu l’Op Art com un moviment dels anys 60 que utilitza
+        <em>formes geomètriques</em> per crear <em>efectes òptics</em>.
+        <a href="https://www.tate.org.uk/art/art-terms/o/op-art" target="_blank" rel="noopener">Font</a>
+      </li>
+      <li>
+        <strong>Encyclopaedia Britannica — “Op art”</strong>: contextualitza el gènere i els efectes de vibració/moviment
+        associats a patrons d’alt contrast.
+        <a href="https://www.britannica.com/art/Op-art" target="_blank" rel="noopener">Font</a>
+      </li>
+      <li>
+        <strong>Evident Scientific — “Moiré pattern”</strong>: explica l’efecte moiré com una interferència visual
+        quan se superposen trames o patrons.
+        <a href="https://www.evidentscientific.com/en/applications/imaging/moire-pattern/" target="_blank" rel="noopener">Font</a>
+      </li>
+      <li>
+        <strong>Tate — Bridget Riley</strong>: biografia i relació amb fenòmens òptics i Op Art.
+        <a href="https://www.tate.org.uk/art/artists/bridget-riley-1845" target="_blank" rel="noopener">Font</a>
+      </li>
+      <li>
+        <strong>Tate — Victor Vasarely</strong>: biografia i paper clau dins l’Op Art.
+        <a href="https://www.tate.org.uk/art/artists/victor-vasarely-2095" target="_blank" rel="noopener">Font</a>
+      </li>
+      <li>
+        <strong>Fondation Vasarely — Victor Vasarely</strong>: informació biogràfica i context de l’artista.
+        <a href="https://www.fondationvasarely.org/architectonic-center/victor-vasarely/" target="_blank" rel="noopener">Font</a>
+      </li>
+      <li>
+        <strong>Pérez Art Museum Miami (PAMM) — Carlos Cruz-Diez</strong>: context, obra i línies d’investigació cromàtica.
+        <a href="https://www.pamm.org/en/essay/carlos-cruz-diez-chromosaturation/" target="_blank" rel="noopener">Font</a>
+      </li>
+      <li>
+        <strong>MoMA — Jesús Rafael Soto</strong>: notes sobre l’ús d’il·lusions òptiques i obres de vibració.
+        <a href="https://www.moma.org/collection/artists/5535" target="_blank" rel="noopener">Font</a>
+      </li>
+      <li>
+        <strong>W3C WAI — ARIA Authoring Practices Guide</strong>: referència per patrons d’accessibilitat
+        (p. ex. carrusel i controls).
+        <a href="https://www.w3.org/WAI/ARIA/apg/" target="_blank" rel="noopener">Font</a>
+      </li>
+      <li>
+        <strong>MDN Web Docs — Constraint Validation</strong>: base tècnica per a validació del formulari al client.
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation" target="_blank" rel="noopener">Font</a>
+      </li>
+    </ul>
+
+    <h3>Imatges i il·lustracions</h3>
+    <ul>
+      <li>
+        <strong>Bridget Riley (foto/imatge d’artista)</strong>:
+        <a href="https://wahooart.com/es/artists/bridget-riley-es/" target="_blank" rel="noopener">wahooart.com</a>
+      </li>
+      <li>
+        <strong>Victor Vasarely (imatge)</strong>:
+        <a href="https://www.singulart.com/blog/wp-content/uploads/2024/02/Victor-Vasarely.webp" target="_blank" rel="noopener">singulart.com</a>
+      </li>
+      <li>
+        <strong>Carlos Cruz-Diez (imatge)</strong>:
+        <a href="https://graffica.info/el-arte-cinetico-decarlos-cruz-diez/" target="_blank" rel="noopener">graffica.info</a>
+      </li>
+      <li>
+        <strong>Jesús Rafael Soto (foto)</strong>:
+        <a href="https://www.masscultura.com/encuentro-con-el-maestro-artistico-de-los-cact-jesus-soto/" target="_blank" rel="noopener">masscultura.com</a>
+      </li>
+      <li>
+        <strong>“Il·lusions interactives” (vector)</strong>:
+        <a href="https://www.freepik.com/premium-vector/abstract-op-art-black-white-lines-hyper-3d-perspective-vector-abstract-background-artistic-illustration-psychedelic-linear-pattern-hypnotic-optical-illusion_21144180.htm"
+           target="_blank" rel="noopener">Freepik (Premium Vector)</a>
+      </li>
+      <li>
+        <strong>Imatge “Principis clau” (contingut)</strong>:
+        <a href="https://unsplash.com/es/fotos/el-patron-geometrico-crea-un-diseno-radial-cautivador-LknV34EO45E"
+           target="_blank" rel="noopener">Unsplash</a>
+      </li>
+      <li>
+        <strong>Imatge “Artistes” (hero)</strong>: creada per l’alumne/a amb Adobe Illustrator.</li>
+      <li>
+        <strong>Imatges de “Principis” (contingut) i visuals de “Demos”</strong>: creades/modificades per l’alumne/a amb Adobe Illustrator.</li>
+      <li>
+        <strong>Logo</strong>: creat per l’alumne/a amb Adobe Illustrator.</li>
+    </ul>
+
+    <h3>Icones</h3>
+    <p>
+      Icones base descarregades de <strong>Freepik</strong> i <strong>calcades/re-dibuixades</strong> a Adobe Illustrator
+      (canvi d’amplada, inclinació i ajustos d’estil). Tot i ser versions modificades, s’indica l’origen per transparència.
+    </p>
+    <ul>
+      <li>
+        Condicions i atribució Freepik:
+        <a href="https://www.freepik.com/legal/terms-of-use" target="_blank" rel="noopener">Terms of use</a>
+        ·
+        <a href="https://support.freepik.com/s/article/Attribution-How-when-and-where?language=en_US" target="_blank" rel="noopener">Guia d’atribució</a>
+      </li>
+    </ul>
+
+    <h3>Tipografia</h3>
+    <ul>
+      <li>
+        <strong>Inter</strong> (Google Fonts):
+        <a href="https://fonts.google.com/specimen/Inter" target="_blank" rel="noopener">Fitxa</a>
+        · Llicència:
+        <a href="https://openfontlicense.org/" target="_blank" rel="noopener">SIL Open Font License 1.1</a>
+      </li>
+      <li>
+        <strong>Archivo</strong> (Google Fonts):
+        <a href="https://fonts.google.com/specimen/Archivo" target="_blank" rel="noopener">Fitxa</a>
+        · Llicència:
+        <a href="https://openfontlicense.org/" target="_blank" rel="noopener">SIL Open Font License 1.1</a>
+      </li>
+    </ul>
+
+    <h3>Ús d’eines i IA (traçabilitat)</h3>
+    <ul>
+      <li><strong>Adobe Illustrator</strong>: creació del logo, il·lustracions pròpies i adaptació d’icones.</li>
+      <li>
+        <strong>IA (assistència)</strong>: suport puntual per revisar redacció, detectar inconsistències d’enllaços
+        i proposar millores d’accessibilitat/UX. (Detall de prompts i resultats: annexos de la memòria.)
+      </li>
+    </ul>
+  </section>
+
+  <p>
+    <a href="contacte.html#contactForm">Tornar a Contacte</a> ·
+    <a href="index.html">Tornar a l’inici</a>
+  </p>
+</main>
+
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-bg-text" aria-hidden="true">OP ART</div>
+
+  <div class="container footer-wrap">
+    <div class="footer-top">
+      <div class="footer-col footer-brand">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="assets/img/Contrast i freqüència icono.svg" alt="" loading="lazy">
+          <p class="footer-kicker">Projecte divulgatiu</p>
+        </div>
+
+        <p class="footer-lead">
+          Projecte divulgatiu d’Op Art. Patrons i codi © Pau Vera.
+        </p>
+      </div>
+
+      <nav class="footer-col footer-nav" aria-label="Navegació peu">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="assets/img/Contrast i freqüència icono.svg" alt="" loading="lazy">
+          <p class="footer-title">Navegació</p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="index.html">Inici</a></li>
+          <li><a href="contingut/index.html">Contingut</a></li>
+          <li><a href="contacte.html">Contacte</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col footer-legal" aria-label="Enllaços legals">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="assets/img/Contrast i freqüència icono.svg" alt="" loading="lazy">
+          <p class="footer-title">Legal</p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="privacitat.html">Privacitat</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col footer-contact">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="assets/img/Contrast i freqüència icono.svg" alt="" loading="lazy">
+          <p class="footer-title">Contacte</p>
+        </div>
+
+        <p class="footer-mini">
+          Tens dubtes o vols col·laborar?
+        </p>
+
+        <div class="footer-actions">
+          <a class="footer-btn footer-btn-ghost" href="contacte.html#contactForm">Demana cita</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <img class="llotja-logo" src="assets/img/llotja.svg" loading="lazy" alt="Logo Llotja" />
+      </div>
+
+      <nav class="footer-socials" aria-label="Redes sociales">
+        <a class="social-link" href="#" title="YouTube"><img src="assets/img/social/yt.svg" alt="YouTube"></a>
+        <a class="social-link" href="#" title="Instagram"><img src="assets/img/social/ig.svg" alt="Instagram"></a>
+        <a class="social-link" href="#" title="Facebook"><img src="assets/img/social/fb.svg" alt="Facebook"></a>
+        <a class="social-link" href="#" title="X (Twitter)"><img src="assets/img/social/x.svg" alt="X (Twitter)"></a>
+        <a class="social-link" href="#" title="LinkedIn"><img src="assets/img/social/linkedin.svg" alt="LinkedIn"></a>
+      </nav>
+
+      <a class="footer-topbtn" href="#top" aria-label="Tornar a dalt">↑</a>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js" defer></script>
+
+
+</body>
+</html>
