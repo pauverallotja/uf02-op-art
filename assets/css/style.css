@@ -1,0 +1,2609 @@
+/* ===============================
+   VARIABLES DE TEMA
+   =============================== */
+:root {
+  --bg: #FAFCFF;
+  --ink: #0F172A;
+  --muted: #475569;
+  --accent: #FF006E;
+  --card: #FFFFFF;
+  --border: #E2E8F0;
+  --max: 1200px;
+  --radius: 14px;
+  --shadow: 0 6px 24px rgba(2, 6, 23, 0.08);
+  --focus: 3px solid rgba(255, 0, 110, 0.5);
+  --leading: 28px;
+}
+
+
+/* ===============================
+   RESETEOS BÁSICOS
+   =============================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+/* ===============================
+   TIPOGRAFÍA Y ENLACES
+   =============================== */
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* quitar subrayado cuando .btn se usa como <a> */
+a.btn {
+  text-decoration: none;
+}
+
+/* y también cuando es cualquier elemento con .btn */
+.btn {
+  text-decoration: none;
+}
+
+p {
+  font-size: 18px;
+  line-height: var(--leading);
+}
+
+/* .lead con tamaño y color atenuado */
+.lead {
+  font-size: 20px;
+  line-height: 32px;
+  
+}
+
+/* H1 */
+h1 {
+  font-family: Archivo, Inter, Arial, sans-serif;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 12px;
+  margin-left: 0;
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+}
+
+/* H2 */
+h2 {
+  font-family: Archivo, Inter, Arial, sans-serif;
+  margin-top: 24;
+  margin-right: 0;
+  margin-bottom: 24px;
+  margin-left: 0;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 700;
+}
+
+/* H3 */
+h3 {
+  font-family: Archivo, Inter, Arial, sans-serif;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 12px;
+  margin-left: 0;
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+/* small */
+small {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--muted);
+}
+
+/* .meta */
+.meta {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--muted);
+}
+
+
+/* ===============================
+   LAYOUT BÁSICO
+   =============================== */
+.container {
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 24px;
+}
+
+.section {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-top: 1px solid var(--border);
+}
+
+
+/* ===============================
+   CARDS / GRIDS
+   =============================== */
+
+
+.cards {
+  display: grid;
+  gap: 16px;
+}
+
+/* 3 columnas auto-fit */
+.cards.three {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.cards.three{ margin-bottom: 48px; }
+
+/* 4 columnas auto-fit */
+.cards.four {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+h2 + .cards.four{ margin-top: 32px; }
+
+
+.card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.principis .card{
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.principis .card-icon{
+  width: 44px;
+  height: 44px;
+  display: block;
+  margin: 2px 0 10px;
+  transition: transform .25s ease, filter .25s ease;
+}
+
+.principis .card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.12);
+}
+
+.principis .card:hover .card-icon{
+  transform: translateY(-2px) scale(1.06) rotate(-2deg);
+  filter: drop-shadow(0 10px 18px rgba(2, 6, 23, 0.18));
+}
+
+/* títulos de card: quitar subrayado en enlaces internos */
+.card h3 a {
+  text-decoration: none;
+}
+
+/* miniatura de card */
+.card-thumb {
+  margin-top: 8px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+/* ===========================
+   DEMOS – igualar altura de thumbnails
+   
+   =========================== */
+
+:root{
+  --demo-thumb-h: 220px; /* alto uniforme para todas las miniaturas */
+}
+
+/* Caso habitual: thumbnails como <div> con patrón (checker, waves, moire, radial)
+   y/o contenedor .demo-canvas / .card-thumb / .pattern-thumb */
+.cards.four .card .demo-canvas,
+.cards.four .card .card-thumb,
+.cards.four .card .pattern-thumb,
+.cards.four .card > .checker,
+.cards.four .card > .waves,
+.cards.four .card > .moire,
+.cards.four .card > .radial{
+  width: 100%;
+  height: var(--demo-thumb-h);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  overflow: hidden;        /* recorta sobrante para que todas queden iguales */
+  display: block;
+}
+
+/* Por si el thumbnail es un <img>, lo ajustamos igual */
+.cards.four .card img.thumb,
+.cards.four .card .demo-canvas img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* rellena sin deformar */
+}
+
+/* (Opcional) un poco más bajo en móvil */
+@media (max-width: 768px){
+
+
+  :root{ --demo-thumb-h: 180px; }
+}
+
+
+
+
+
+
+
+
+
+.artistes .flip-card{
+  perspective: 1000px;
+}
+
+.artistes .flip-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .55s ease;
+}
+
+.artistes .flip-card:hover .flip-inner,
+.artistes .flip-card:focus-within .flip-inner{
+  transform: rotateY(180deg);
+}
+
+.artistes .flip-face{
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.artistes .flip-back{
+  position: absolute;
+  inset: 0;
+  background: var(--card);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  padding: 18px;
+  transform: rotateY(180deg);
+}
+/* --- ARTISTES: espaciado extra de la sección --- */
+
+.section.artistes{
+  padding-bottom: 56px;
+}
+
+
+
+
+/* ===============================
+   DEMOS – Carrusel (1 slide) + dots + split (img/text)
+   =============================== */
+.demo-carousel{
+  position: relative;
+  overflow: hidden;
+}
+
+.demo-track{
+  display: flex;
+  width: 100%;
+  transition: transform .55s ease;
+  will-change: transform;
+}
+
+.demo-slide{
+  flex: 0 0 100%;
+}
+
+.demo-split{
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 22px;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+.demo-media{
+  width: 100%;
+}
+.demo-img-wrap{
+  display: block;
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.demo-img-wrap img,
+.demo-img-wrap .demo-canvas{
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover overlay "Encontraràs..." */
+.demo-img-overlay{
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(15, 23, 42, 0.72);
+  color: #fff;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.demo-img-wrap:hover .demo-img-overlay{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-img-overlay p{
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+/* Texto derecha */
+.demo-text h3{
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.demo-text p{
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* Dots */
+.demo-dots{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.demo-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(15,23,42,.25);
+  background: rgba(15,23,42,.12);
+  cursor: pointer;
+}
+
+.demo-dot.is-active{
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .demo-split{
+    grid-template-columns: 1fr;
+  }
+  .demo-img-wrap img{
+    height: 240px;
+  }
+}
+
+
+/* ===============================
+   CABECERA Y NAVEGACIÓN (Glass + CTA rosa)
+   =============================== */
+
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: rgba(250, 252, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 0;
+  box-shadow: 0 14px 40px rgba(2, 6, 23, 0.08);
+}
+
+.nav-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+}
+
+/* LOGO */
+.site-header .logo{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 0;
+}
+
+.site-header .logo img{
+  height: 92px;
+  width: auto;
+  display: block;
+}
+
+/* NAV (PC): centrado */
+.site-nav{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.site-nav ul{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Links tipo “chip” glass */
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Aumentamos el padding lateral para que se vea más alargado */
+  padding: 8px 24px; 
+  
+  /* CAMBIO CLAVE: Usamos px en lugar de % para evitar el efecto 'rugby' */
+  border-radius: 100px; 
+
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  background: rgba(255,255,255,.35);
+  border: 1px solid transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 10px 26px rgba(2, 6, 23, 0.06);
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.site-nav a:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.55);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+.site-nav a[aria-current="page"]{
+  border-color: rgba(255, 0, 110, 0.55);
+  box-shadow:
+    0 10px 26px rgba(2, 6, 23, 0.06),
+    0 0 0 3px rgba(255, 0, 110, 0.14);
+}
+
+/* CTA PC: rosa OP ART */
+.site-header .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Un poco más de padding lateral para acentuar la forma de pastilla */
+  padding: 10px 28px; 
+
+  /* CAMBIO CLAVE: Usamos px para asegurar bordes perfectamente rectos arriba/abajo */
+  border-radius: 100px; 
+
+  font-weight: 700;
+  background: #FF006E;
+  border: 1px solid #FF006E;
+  color: #FAFCFF;
+  text-decoration: none;
+  box-shadow:
+    0 10px 30px rgba(255, 0, 110, .30),
+    0 0 0 4px rgba(255, 0, 110, .10);
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.site-header .btn-cta:hover{
+  transform: translateY(-2px);
+  background: #ff2b86;
+  border-color: #ff2b86;
+  box-shadow:
+    0 14px 36px rgba(255, 0, 110, .40),
+    0 0 0 4px rgba(255, 0, 110, .18);
+}
+
+/* ===============================
+   HAMBURGUESA (solo móvil)
+   =============================== */
+
+.nav-toggle{
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  background: rgba(255,255,255,.04);
+  color: var(--ink);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+
+  position: relative;
+  z-index: 1001;
+}
+
+.nav-toggle:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(15,23,42,.22);
+}
+
+.nav-toggle-lines{
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  position: relative;
+  display: block;
+  border-radius: 2px;
+}
+
+.nav-toggle-lines::before,
+.nav-toggle-lines::after{
+  content:"";
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform .22s ease, top .22s ease, opacity .22s ease;
+}
+
+.nav-toggle-lines::before{ top: -6px; }
+.nav-toggle-lines::after{ top: 6px; }
+
+/* Drawer lateral: 50vw x 100vh */
+.mobile-menu{
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: min(50vw, 420px);
+  height: 100vh;
+
+  padding: 110px 18px 22px;
+  z-index: 999;
+
+  transform: translateX(-110%);
+  transition: transform .28s ease;
+
+  background: rgba(250,252,255,.82);
+  border-right: 1px solid rgba(15,23,42,.10);
+  box-shadow: 18px 0 70px rgba(2,6,23,.18);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  overflow: auto;
+}
+
+.mobile-menu-inner {
+  height: 100%;
+  display: grid;
+  align-content: start;
+  gap: 16px;
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 10px 18px;
+
+  border-radius: 999px; /* <-- clave: pastilla real (no 100%) */
+  text-decoration: none;
+  color: var(--ink);
+
+  background: rgba(255,255,255,.35);
+  border: 1px solid rgba(15,23,42,.10);
+  box-shadow: 0 10px 26px rgba(2, 6, 23, 0.06);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.mobile-link:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,.55);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
+
+.mobile-actions{
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* CTA móvil (dentro del drawer): rosa */
+.mobile-actions .footer-btn,
+.mobile-actions .footer-btn-ghost{
+  background: #FF006E;
+  border-color: #FF006E;
+  color: #FAFCFF;
+
+  box-shadow:
+    0 10px 30px rgba(255, 0, 110, .35),
+    0 0 0 0 rgba(255, 0, 110, 0);
+
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.mobile-actions .footer-btn:hover,
+.mobile-actions .footer-btn-ghost:hover{
+  transform: translateY(-2px);
+  background: #ff2b86;
+  border-color: #ff2b86;
+  box-shadow:
+    0 14px 36px rgba(255, 0, 110, .45),
+    0 0 0 4px rgba(255, 0, 110, .18);
+}
+
+/* Backdrop */
+.mobile-backdrop{
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(2,6,23,.35);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity .2s ease;
+
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Estado abierto */
+body.is-menu-open .mobile-menu{
+  transform: translateX(0);
+}
+
+body.is-menu-open .mobile-backdrop{
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Hamburguesa -> X */
+body.is-menu-open .nav-toggle-lines{
+  background: transparent;
+}
+
+body.is-menu-open .nav-toggle-lines::before{
+  top: 0;
+  transform: rotate(45deg);
+}
+
+body.is-menu-open .nav-toggle-lines::after{
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* ===============================
+   RESPONSIVE
+   =============================== */
+
+@media (max-width: 860px){
+  .site-header .logo img{ height: 72px; }
+  .site-nav a{ padding: 9px 12px; border-radius: 12px; }
+  .site-header .btn-cta{ padding: 9px 12px; border-radius: 12px; }
+}
+
+@media (max-width: 768px){
+  /* aire lateral */
+  .site-header .nav-wrap{
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  /* móvil: solo hamburguesa izq + logo der */
+  .site-nav{ display: none; }
+  .site-header .btn-cta{ display: none; }
+
+  .nav-toggle{ display: inline-flex; }
+  .mobile-menu{ display: block; }
+  .mobile-backdrop{ display: block; }
+
+  .site-header .logo{ margin-left: auto; }
+}
+
+@media (max-width: 480px){
+  .mobile-menu{
+    width: 86vw;
+    padding-top: 104px;
+  }
+}
+
+/* ===============================
+   BOTONES
+   =============================== */
+/* Clase base para todos los botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ink);
+  
+  /* Ajuste de padding para que la pastilla se vea alargada */
+  padding: 8px 14px; 
+  
+  /* Redondeo tipo pastilla (recto arriba/abajo, redondo lados) */
+  border-radius: 100px; 
+  
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+/* primario */
+/* Botón Primario (Oscuro): Diseño de pastilla unificado */
+.btn-primary {
+  background: var(--ink);      /* El color oscuro #0F172A */
+  color: #fff;
+  border: 1px solid var(--ink);
+  padding: 10px 24px;          /* Mismo padding que los otros botones */
+  border-radius: 100px;        /* Forma de pastilla perfecta */
+  font-weight: 700;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* HOVER: Mismo salto y sombra rosa para coherencia visual */
+.btn-primary:hover {
+  background: #1e293b;         /* Un tono oscuro ligeramente más suave al pasar el ratón */
+  border-color: var(--accent); /* Aparece el borde rosa característico */
+  transform: translateY(-2px); /* Salto hacia arriba */
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(255, 0, 110, 0.2); /* Sombra rosa sutil */
+}
+
+/* estilo enlace */
+.btn-link {
+  border: none;
+  padding: 0 6px;
+}
+
+/* CTA/accent */
+.btn-cta {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+
+/* ===============================
+   ACCESIBILIDAD (saltos y focus)
+   =============================== */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  width: auto;
+  height: auto;
+  background: #fff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  outline: var(--focus);
+}
+
+/* =========================================================
+   HERO con carrusel a pantalla ancha
+   ========================================================= */
+.hero.carousel {
+  position: relative;
+  min-height: 520px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.carousel-track {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  transition: transform 0.6s ease;
+}
+
+.slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Aplicamos el estilo tanto a imágenes como a vídeos del fondo */
+.slide img,
+.slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  filter: saturate(0.8);
+}
+
+/* ---------------------------------------------------------
+   Texto gigante rosa de fondo (DENTRO DE CADA SLIDE)
+   --------------------------------------------------------- */
+.hero-bg-text {
+  position: absolute;
+  top: 23%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  
+  font-family: Archivo, Inter, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: clamp(30px, 5vw, 65px); 
+  line-height: 0.9;
+  white-space: nowrap;
+  
+  color: rgba(255, 0, 110, 0.60); 
+  text-shadow:
+    0 0 20px rgba(255, 0, 110, 0.40),
+    0 0 60px rgba(255, 0, 110, 0.22);
+    
+  pointer-events: none;
+  z-index: 1; 
+  text-align: center;
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   Contenido Liquid Glass (DENTRO DE CADA SLIDE)
+   --------------------------------------------------------- */
+.hero-content {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;        
+  justify-content: flex-start; 
+
+  max-width: var(--max); 
+  margin: 0 auto; 
+  padding: 0 24px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 48px;
+  max-width: 650px;
+  text-align: left;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.glass-card .lead {
+  color: #fff;
+  margin-bottom: 32px;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero-ctas .btn-primary {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+  font-weight: 700;
+}
+
+.hero-ctas .btn-link {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------
+   Controles y Responsive
+   --------------------------------------------------------- */
+.carousel-dots {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.carousel-dots button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dots button[aria-selected="true"] {
+  background: #fff;
+  transform: scale(1.2);
+  border-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .hero-bg-text {
+    font-size: 40px;
+    white-space: normal;
+    left: 50%;
+    top: 28%;
+    transform: translate(-50%, -50%);
+  }
+  .glass-card {
+    padding: 24px;
+    margin: 10px;
+  }
+}
+
+/* =========================================================
+   BLOQUES CON IMAGEN EN EL LATERAL (aside)
+   - Grid de 2 columnas: contenido + imagen
+   ========================================================= */
+.block-with-aside {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Animación SOLO cuando entra en pantalla (se activa con .is-inview) */
+#contrast.block-with-aside,
+#repeticio.block-with-aside,
+#profunditat.block-with-aside{
+  opacity: 0;
+  transform: translateX(-60px);
+  will-change: transform, opacity;
+}
+
+#contrast.block-with-aside.is-inview,
+#repeticio.block-with-aside.is-inview,
+#profunditat.block-with-aside.is-inview{
+  animation: slideInLeftBlocks 0.9s ease-out forwards;
+}
+
+@keyframes slideInLeftBlocks{
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Accesibilidad: respeta reduce motion */
+@media (prefers-reduced-motion: reduce){
+  #contrast.block-with-aside,
+  #repeticio.block-with-aside,
+  #profunditat.block-with-aside{
+    opacity: 1;
+    transform: none;
+  }
+
+  #contrast.block-with-aside.is-inview,
+  #repeticio.block-with-aside.is-inview,
+  #profunditat.block-with-aside.is-inview{
+    animation: none;
+  }
+}
+
+
+/* Apariencia de la imagen lateral (tarjeta suave) */
+.block-with-aside .block-aside {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+/* ===============================
+   BREADCRUMBS / SUBNAV
+   =============================== */
+.breadcrumbs {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* Contenedores de botones (Margen de 48px abajo) */
+.subnav, 
+.inpage-nav, 
+.content-shortcuts {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  margin-bottom: 48px !important; 
+}
+
+.roomy {
+  gap: 24px !important;
+}
+
+/* Estilo Base: Pastilla Perfecta para todos estos enlaces */
+.inpage-nav a, 
+.subnav a,
+.content-shortcuts a {
+  padding: 10px 24px;
+  border-radius: 100px;
+  background: #fff;
+  border: 1px solid var(--border);
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--ink);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* HOVER UNIFICADO: Rosa y salto arriba */
+.inpage-nav a:hover, 
+.subnav a:hover,
+.content-shortcuts a:hover {
+  background: var(--bg);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  color: var(--ink);
+  box-shadow: 0 4px 12px rgba(255, 0, 110, 0.15);
+}
+
+
+
+
+
+/* ===============================
+   FORMULARIOS
+   =============================== */
+.form {
+  max-width: 720px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* inputs de texto */
+.field input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* inputs de email */
+.field input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* selects */
+.field select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* textarea */
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* checkboxes en línea con etiqueta */
+.field.checkbox {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.actions {
+  margin-top: 16px;
+}
+
+.status {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.backtotop {
+  text-decoration: none;
+}
+
+
+/* ===============================
+   CONTROLES Y DEMOS
+   =============================== */
+.controls {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.demo-canvas {
+  height: 260px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.demo-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* leve ajuste del toggle */
+.toggle input {
+  transform: translateY(1px);
+}
+
+
+
+
+
+
+/* =========================================================
+   CONTACTO — FULL PAGE (limpio) + FIX FRANJA (footer-wrap)
+   Requiere: <body class="page-contact">
+   ========================================================= */
+
+html, body{
+  min-height: 100%;
+}
+
+body.page-contact{
+  background: #0F172A;
+}
+
+/* Quita fondos blancos SOLO en esta página (incluye el culpable footer-wrap) */
+body.page-contact #main,
+body.page-contact .site-main,
+body.page-contact .container,
+body.page-contact .ct-container,
+body.page-contact .footer-wrap,
+body.page-contact .container.footer-wrap,
+body.page-contact footer.site-footer,
+body.page-contact footer.site-footer .container,
+body.page-contact footer.site-footer .container.footer-wrap{
+  background: transparent !important;
+}
+
+/* También evita que haya “huecos” por padding/margins raros del footer en esta página */
+body.page-contact footer.site-footer{
+  margin-top: 60px !important;
+}
+
+/* ======================
+   SECCIÓN CONTACTO
+   ====================== */
+
+body.page-contact .contact-hero{
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+
+  background: linear-gradient(160deg,
+    #1E293B 0%,
+    #1E293B 46%,
+    #0F172A 46%,
+    #0F172A 100%);
+}
+
+
+
+/* Contenedor centrado */
+body.page-contact .contact-container{
+  position: relative;
+  z-index: 1;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 64px 28px;
+}
+
+/* Grid formulario + imagen */
+body.page-contact .contact-grid{
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Tarjeta blanca del form */
+body.page-contact .contact-card{
+  background: #fff;
+  border-radius: 18px;
+  padding: 26px;
+  border: 1px solid rgba(226,232,240,1);
+  box-shadow: 0 22px 60px rgba(2,6,23,.18);
+}
+
+body.page-contact .contact-title{
+  margin: 0 0 14px 0;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  color: #0F172A;
+}
+
+/* Inputs (blancos, limpios) */
+body.page-contact .contact-card .field label{
+  color: rgba(15,23,42,.8);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-size: 12px;
+}
+
+body.page-contact .contact-card input[type="text"],
+body.page-contact .contact-card input[type="email"],
+body.page-contact .contact-card select,
+body.page-contact .contact-card textarea{
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(226,232,240,1);
+  background: #fff;
+  padding: 12px 14px;
+  outline: none;
+  box-shadow: 0 10px 24px rgba(2,6,23,.06);
+}
+
+body.page-contact .contact-card textarea{
+  resize: vertical;
+  min-height: 140px;
+}
+
+body.page-contact .contact-card .actions{
+  margin-top: 14px;
+}
+
+/* Imagen lateral */
+body.page-contact .contact-side{
+  margin: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(250,252,255,.14);
+  background: rgba(255,255,255,.04);
+  box-shadow: 0 22px 70px rgba(2,6,23,.35);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+body.page-contact .contact-side img{
+  width: 100%;
+  height: 100%;
+  max-height: 560px;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+  body.page-contact .contact-container{ padding: 48px 22px; }
+  body.page-contact .contact-grid{ grid-template-columns: 1fr; }
+  body.page-contact .contact-side{ order: -1; }
+  body.page-contact .contact-side img{ max-height: 320px; }
+}
+
+@media (max-width: 520px){
+  body.page-contact .contact-container{ padding: 36px 16px; }
+  body.page-contact .contact-card{ padding: 18px; }
+}
+/* =========================================================
+   CONTACTE: quitar la “U” blanca del footer (causa del hueco blanco)
+   ========================================================= */
+body.page-contact .site-footer::before{
+  background: #0F172A !important;  /* antes #FAFCFF */
+}
+
+/* Por si el footer-wrap o el container tienen fondo heredado */
+body.page-contact .site-footer,
+body.page-contact .site-footer .footer-wrap,
+body.page-contact .site-footer .container.footer-wrap{
+  background: transparent !important;
+}
+
+/* =========================================================
+   SECCIÓN BENEFICIOS (Alineada con Margen de la Web)
+   ========================================================= */
+
+.benefits-section {
+  /* 1. Mismo ancho y centrado que el resto de la web */
+  max-width: var(--max); /* Usa los 1200px definidos en :root */
+  margin: 80px auto 0 auto; /* 80px de separación arriba y centrado horizontal */
+  padding: 0 28px; /* Mismo padding lateral que tu contact-container */
+  width: 100%;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 bloques en PC */
+  gap: 24px;
+}
+
+.benefit-card {
+  /* 2. Color de fondo idéntico a la página de contacto */
+  background: #0F172A; /* */
+  padding: 32px 24px;
+  border-radius: 18px;
+  position: relative;
+  
+  /* 3. Diferenciación mediante bordes y sombras profundas */
+  border: 1px solid rgba(255, 255, 255, 0.08); /* Borde muy sutil */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);  /* Sombra para dar volumen */
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  overflow: hidden;
+}
+
+/* Línea vertical lila a la izquierda */
+.benefit-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 32px;
+  height: 30px;
+  width: 4px;
+  background-color: var(--accent); /* Tu color lila #FF006E */
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 0 15px var(--accent); /* Resplandor lila */
+}
+
+/* HOVER: Elevación y realce */
+.benefit-card:hover {
+  transform: translateY(-10px); /* El bloque se eleva */
+  border-color: rgba(255, 0, 110, 0.4); /* El borde se vuelve lila */
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 25px rgba(255, 0, 110, 0.15);
+}
+
+.benefit-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 20px;
+}
+
+.benefit-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Tiñe los iconos de tu color lila mediante filtro */
+  filter: brightness(0) saturate(100%) invert(16%) sepia(94%) saturate(7305%) hue-rotate(320deg) brightness(101%) contrast(105%);
+}
+
+.benefit-card h3 {
+  color: #fff;
+  font-size: 19px;
+  margin: 0 0 12px 0;
+  font-family: Archivo, sans-serif; /* */
+}
+
+.benefit-card p {
+  color: rgba(250, 252, 255, 0.6); /* Texto suavizado para no cansar la vista */
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* RESPONSIVE: 2x2 en Tablets y Móvil */
+@media (max-width: 992px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 bloques horizontalmente */
+    gap: 20px;
+  }
+}
+
+/* 1 columna en móviles muy pequeños */
+@media (max-width: 520px) {
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  .benefits-section {
+    margin-top: 50px;
+    padding: 0 16px; /* Menos padding en móviles extremos */
+  }
+}
+
+
+
+
+/* =========================================================
+   DEMOS DE PATRONES (fondos CSS puros)
+   - checker: damero
+   - waves: líneas + gradiente para relieve
+   - moire: doble rejilla con leve ángulo
+   - radial: rayos con máscara central
+   ========================================================= */
+
+/* Damero */
+.checker {
+  --s: 40px;
+  background:
+    conic-gradient(#000 25%, #fff 0 50%, #000 0 75%, #fff 0) 0 0 / var(--s) var(--s),
+    conic-gradient(#fff 25%, #000 0 50%, #fff 0 75%, #000 0) calc(var(--s) / 2) calc(var(--s) / 2) / var(--s) var(--s);
+}
+
+/* Ondas */
+.waves {
+  --gap: 18px;
+  --amp: 12px;
+  background:
+    repeating-linear-gradient(0deg, #000 0 2px, transparent 2px calc(var(--gap))),
+    radial-gradient(100% 50% at 0 50%, transparent calc(50% - var(--amp)), rgba(0, 0, 0, 0.08) calc(50% - var(--amp) + 1px));
+  background-blend-mode: multiply;
+}
+
+/* Moiré */
+.moire {
+  --stripe: 3px;
+  --angle: 3deg;
+  background:
+    repeating-linear-gradient(0deg, #000 0 var(--stripe), transparent var(--stripe) calc(var(--stripe) * 2)),
+    repeating-linear-gradient(var(--angle), #000 0 var(--stripe), transparent var(--stripe) calc(var(--stripe) * 2));
+}
+
+/* Radial con máscara central */
+.radial {
+  --density: 48;
+  background:
+    repeating-conic-gradient(#000 0 calc(360deg / var(--density)), transparent 0 calc(720deg / var(--density)));
+  mask: radial-gradient(circle at center, #000 55%, rgba(0, 0, 0, 0.6) 58%, transparent 70%);
+}
+
+
+/* =========================================================
+   ACCESIBILIDAD: reducir animaciones si el usuario lo pide
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .waves,
+  .moire,
+  .radial {
+    animation: none !important;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE / TABLET — CONTACTO
+   ========================================================= */
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE / TABLET — BLOQUES CON ASIDE
+   ========================================================= */
+@media (max-width: 1024px) {
+  .block-with-aside {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   RESPONSIVE / TABLET — HERO
+   ========================================================= */
+@media (max-width: 1024px) {
+  .hero-content {
+    padding-top: 56px;
+    padding-right: 12px;
+    padding-bottom: 52px;
+    padding-left: 12px;
+  }
+}
+
+
+
+/* =========================================================
+   LOGO EN EL HEADER
+   - Tamaño por defecto (desktop)
+   ========================================================= */
+.site-header .logo img {
+  height: 60px; /* Ajusta aquí si lo necesitas (80px, 90px, etc.) */
+  width: auto;
+  display: block;
+}
+
+/* Versión móvil: logo más pequeño */
+@media (max-width: 768px) {
+  .site-header .logo img {
+    height: 64px;
+  }
+}
+
+/* (Opcional) si el logo del FOOTER se hace grande y lo quieres pequeño: */
+.site-footer .logo img{
+  height: 50px;
+  width: auto;
+}
+
+/* Bloque con logo Llotja */
+.footer-llotja {
+  text-align: center;
+  padding: 24px 100px;
+  border-top: 1px solid var(--border, #ddd);
+  background-color: #fff;
+}
+
+.footer-llotja img {
+  height: 60px;       /* Ajusta el tamaño aquí */
+  width: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footer-llotja img:hover {
+  opacity: 1;
+}
+
+
+
+/* Contacte: ocultar imagen lateral solo en móvil */
+@media (max-width: 768px){
+  /* el formulario ya ocupa 1 columna; aseguramos el layout */
+  .contact-grid{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* oculta el aside con la imagen de la derecha */
+  .contact-grid .contact-side{
+    display: none !important;
+  }
+}
+
+/* ===============================
+   FOCUS — (unificar en 1 solo bloque)
+   =============================== */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(255, 0, 110, .5); /* mismo --focus */
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.form-error {
+  margin-top: 6px;
+  color: #b00020;
+  font-size: 14px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .carousel-track{ transition:none !important; }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Texto del hero en blanco, incluidos enlaces tipo link */
+.hero-content a { color: #fff; }
+
+/* El botón primario del hero ya queda negro sobre blanco con esta regla existente */
+.hero-ctas .btn-primary { /* ya está en tu CSS; aquí no cambies nada */ }
+
+
+/* Hero: texto blanco (excepto el botón primario que ya tiene estilos propios) */
+.hero .hero-content,
+.hero .hero-content h1,
+.hero .hero-content .lead,
+.hero .hero-content a.btn-link { color:#fff; }
+
+/* Puntos del carrusel (bolas) */
+.hero.carousel { position: relative; }
+.hero .carousel-dots {
+  position: absolute; left:50%; bottom:1rem; transform:translateX(-50%);
+  display:flex; gap:.5rem;
+}
+.hero .carousel-dots button {
+  width:10px; height:10px; border:0; border-radius:50%;
+  background: rgba(255,255,255,.45); cursor:pointer;
+}
+.hero .carousel-dots button[aria-selected="true"] { background:#fff; }
+
+/* Asegurar desplazamiento de pista (por si no estaba) */
+.hero .carousel-track { display:flex; transition: transform .4s ease; }
+.hero .slide { min-width:100%; }
+
+
+
+
+/* Overlay genérico para miniaturas dentro de .card */
+.card .thumb-wrap { position: relative; overflow: hidden; border-radius: inherit; }
+.card .thumb-wrap img.card-thumb { display:block; width:100%; height:auto; }
+.card .thumb-overlay {
+  position: absolute; inset: 0;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  padding:12px; background: rgba(0,0,0,.8); color:#fff;
+  opacity:0; transform: translateY(6%); transition: opacity .25s ease, transform .25s ease;
+}
+.card:hover .thumb-overlay { opacity:1; transform: translateY(0); }
+
+/* Tipografía pequeña y legible */
+.card .thumb-overlay p { margin:0; font-size:.95rem; line-height:1.35; }
+
+
+/* Footer inferior: Llotja + redes */
+.footer-llotja {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;                 /* separación entre logo y redes */
+  padding: 12px 0;
+}
+
+.footer-llotja .llotja-logo {
+  height: 28px;              /* ajusta a tu gusto */
+  width: auto;
+  display: block;
+}
+
+.footer-llotja .footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-llotja .social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;               /* caja clicable cómoda */
+  height: 32px;
+  border-radius: 8px;
+  transition: background-color .2s ease, filter .2s ease, opacity .2s ease;
+}
+
+.footer-llotja .social-link img {
+  display: block;
+  width: 20px;               /* tamaño del icono */
+  height: 20px;
+  transition: filter .2s ease, opacity .2s ease;
+}
+
+/* Hover: “un poquito más oscuro” sobre el icono */
+.footer-llotja .social-link:hover img {
+  filter: brightness(0.85);
+}
+
+/* Opcional: dar un leve fondo al pasar el ratón */
+.footer-llotja .social-link:hover {
+  background-color: rgba(0,0,0,.06);
+}
+
+
+/* ===============================
+   BLOQUE "QUÈ ÉS L’OP ART?" (2 columnas + carrusel)
+   =============================== */
+
+.opart-card{
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+}
+
+.opart-split{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: center;
+}
+
+/* Animación SOLO cuando entra en pantalla (se activa con .is-inview) */
+#que-es .opart-split{
+  opacity: 0;
+  transform: translateX(-60px);
+  will-change: transform, opacity;
+}
+
+#que-es .opart-split.is-inview{
+  animation: opartSlideInInview 0.9s ease-out forwards;
+}
+
+@keyframes opartSlideInInview{
+  to{
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  #que-es .opart-split{
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
+}
+
+
+
+
+
+/* ===============================
+   ANIMACIÓN (solo cuando entra en pantalla)
+   - PRINCIPIS (cards) / ARTISTES (cards)
+   - CONTINGUT index (block-with-aside)
+   - DEMOS (section.demo)
+   - CONTACTE (contact-card, benefit-card, contact-side)
+   Se activa al añadir .is-inview al elemento objetivo
+   =============================== */
+
+/* Evita “saltos” visuales al animar */
+.principis-anim,
+.artistes-anim,
+body[data-section="contingut"] .site-main .block-with-aside,
+body[data-section="contingut"] .site-main .demo.section,
+.page-contact .contact-card,
+.page-contact .benefit-card,
+.page-contact .contact-side{
+  will-change: transform, opacity;
+}
+
+/* ---------- 1) PRINCIPIS + ARTISTES (animan las .card) ---------- */
+.principis-anim,
+.artistes-anim{
+  overflow: hidden;
+}
+
+.principis-anim .card,
+.artistes-anim .card{
+  opacity: 0;
+  transform: translateX(-48px);
+}
+
+.principis-anim.is-inview .card,
+.artistes-anim.is-inview .card{
+  animation: slideInLeft 0.9s ease-out forwards;
+}
+
+/* Delays */
+.principis-anim.is-inview .card:nth-child(1){ animation-delay: .05s; }
+.principis-anim.is-inview .card:nth-child(2){ animation-delay: .15s; }
+.principis-anim.is-inview .card:nth-child(3){ animation-delay: .25s; }
+
+.artistes-anim.is-inview .card:nth-child(1){ animation-delay: .05s; }
+.artistes-anim.is-inview .card:nth-child(2){ animation-delay: .15s; }
+.artistes-anim.is-inview .card:nth-child(3){ animation-delay: .25s; }
+.artistes-anim.is-inview .card:nth-child(4){ animation-delay: .35s; }
+
+/* ---------- 2) CONTINGUT index (block-with-aside) ---------- */
+body[data-section="contingut"] .site-main .block-with-aside{
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+body[data-section="contingut"] .site-main .block-with-aside.is-inview{
+  animation: slideInLeft 0.9s ease-out forwards;
+}
+
+/* ---------- 3) DEMOS (cada section.demo) ---------- */
+body[data-section="contingut"] .site-main .demo.section{
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+body[data-section="contingut"] .site-main .demo.section.is-inview{
+  animation: slideInLeft 0.9s ease-out forwards;
+}
+
+/* ---------- 4) CONTACTE ---------- */
+/* Formulario (izq → der) */
+.page-contact .contact-card{
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.page-contact .contact-card.is-inview{
+  animation: slideInLeft 0.9s ease-out forwards;
+}
+
+/* Imagen lateral (der → izq) */
+.page-contact .contact-side{
+  opacity: 0;
+  transform: translateX(60px);
+}
+
+.page-contact .contact-side.is-inview{
+  animation: slideInRight 0.9s ease-out forwards;
+}
+
+/* Cards de beneficios (izq → der) */
+.page-contact .benefit-card{
+  opacity: 0;
+  transform: translateX(-48px);
+}
+
+.page-contact .benefit-card.is-inview{
+  animation: slideInLeft 0.9s ease-out forwards;
+}
+
+/* Delays benefits */
+.page-contact .benefit-card.is-inview:nth-child(1){ animation-delay: .05s; }
+.page-contact .benefit-card.is-inview:nth-child(2){ animation-delay: .15s; }
+.page-contact .benefit-card.is-inview:nth-child(3){ animation-delay: .25s; }
+.page-contact .benefit-card.is-inview:nth-child(4){ animation-delay: .35s; }
+
+/* Keyframes */
+@keyframes slideInLeft{
+  to{ opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight{
+  to{ opacity: 1; transform: translateX(0); }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce){
+  .principis-anim .card,
+  .artistes-anim .card,
+  body[data-section="contingut"] .site-main .block-with-aside,
+  body[data-section="contingut"] .site-main .demo.section,
+  .page-contact .contact-card,
+  .page-contact .benefit-card,
+  .page-contact .contact-side{
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+
+/* ===============================
+   OP ART CAROUSEL – 1 delante + 2 detrás (borrosas)
+   =============================== */
+
+.opart-carousel{
+  position: relative;
+  width: 100%;
+  height: 320px;
+  border-radius: 14px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  overflow: visible; /* para ver las de atrás */
+  isolation: isolate;
+}
+
+.opart-carousel img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 76%;
+  height: 88%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  border-radius: 14px;
+  border: 0;
+  box-shadow: none;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform .55s ease, opacity .55s ease, filter .55s ease;
+}
+
+/* Estados */
+.opart-carousel img.is-active{
+  opacity: 1;
+  filter: none;
+  transform: translate(-50%, -50%) scale(1);
+  z-index: 3;
+}
+
+.opart-carousel img.is-prev,
+.opart-carousel img.is-next{
+  opacity: 1;
+  filter: blur(6px);
+  z-index: 2;
+}
+
+.opart-carousel img.is-prev{
+  transform: translate(calc(-50% - 26%), -50%) scale(.90);
+}
+
+.opart-carousel img.is-next{
+  transform: translate(calc(-50% + 26%), -50%) scale(.90);
+}
+
+
+/* ===============================
+   Responsive móvil (sin duplicados)
+   =============================== */
+
+@media (max-width: 768px){
+  .opart-card{ padding: 18px; }
+
+  .opart-split{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .opart-carousel{ height: 220px; }
+
+  .opart-carousel img{
+    width: 88%;
+    height: 90%;
+  }
+
+  .opart-carousel img.is-prev{
+    transform: translate(calc(-50% - 18%), -50%) scale(.92);
+  }
+
+  .opart-carousel img.is-next{
+    transform: translate(calc(-50% + 18%), -50%) scale(.92);
+  }
+}
+
+
+/* ===============================
+   Reduce motion
+   =============================== */
+
+@media (prefers-reduced-motion: reduce){
+  .opart-carousel img{ transition: none !important; }
+}
+
+
+/* ====================================
+   WIDGET CHAT FLOTANTE
+   estilos para el boton q sale a la izquierda
+   ==================================== */
+   .pill-row{
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1000;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.chat-pill {
+  
+  z-index: 1000;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s ease;
+}
+.news-pill{
+  background: #0F172A;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.news-pill:hover{
+  transform: translateY(-2px);
+}
+
+
+.chat-pill:hover {
+  transform: translateY(-2px); /* efecto botecito */
+}
+
+.chat-widget {
+  position: fixed;
+  bottom: 80px; /* justo encima del boton */
+  left: 24px;
+  width: 300px; /* no muy grande, pa q no moleste */
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  padding: 20px;
+  z-index: 1000;
+  display: none; /* invisible al principio */
+}
+
+/* clase para cuando se abre */
+.chat-widget.is-open {
+  display: block;
+  animation: popUp 0.3s ease-out;
+}
+
+@keyframes popUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* estilos de dentro del chat */
+.chat-widget h3 {
+  margin-top: 0;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.chat-widget .field {
+  margin-bottom: 10px; /* un poco menos d margen q el grande */
+}
+
+.chat-widget label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.chat-widget input, 
+.chat-widget textarea, 
+.chat-widget select {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.chat-widget textarea {
+  min-height: 80px;
+}
+
+.chat-widget .actions {
+  margin-top: 10px;
+}
+
+.chat-widget .btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.close-chat {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.close-chat:hover {
+  color: var(--ink);
+}
+
+
+/* =========================================
+   ESTILOS DEL POPUP NEWSLETTER (Modal)
+   ========================================= */
+
+/* Fondo oscuro que cubre toda la pantalla */
+.news-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparente */
+  z-index: 2000; /* Por encima de todo, incluso del chat */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  
+  /* Oculto por defecto */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+
+/* Clase para mostrarlo */
+.news-modal.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* La caja blanca del contenido */
+.news-content {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  display: flex; /* Para poner imagen al lado del form */
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); }
+  to { transform: translateY(0); }
+}
+
+/* Botón cerrar popup */
+.news-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Columnas */
+.news-form-col {
+  flex: 1;
+  padding: 40px;
+}
+
+.news-img-col {
+  flex: 1;
+  background-color: #eee;
+}
+
+.news-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Ajustes Responsive (Móvil) */
+/* Ajustes Responsive (Móvil) */
+@media (max-width: 768px) {
+
+  /* El overlay ya tiene padding:20px; aquí aseguramos que la caja no se salga */
+  .news-content{
+    flex-direction: column;        /* imagen arriba + form abajo */
+    width: 100%;
+    max-width: 520px;              /* más compacto en móvil */
+    max-height: calc(100vh - 70px);
+overflow: hidden;
+    border-radius: 12px;
+  }
+
+  /* Menos padding para que quepa todo sin “bajar” demasiado */
+  .news-form-col{
+padding: 18px 16px;  }
+
+  /* Imagen controlada: ni gigante ni se la come el modal */
+  .news-img-col{
+    height: clamp(120px, 24vh, 200px);
+    flex: 0 0 auto;
+  }
+
+  .news-img-col img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  /* Botón cerrar: siempre visible */
+  .news-close{
+    top: 8px;
+    right: 10px;
+    font-size: 28px;
+  }
+
+  /* (Esto ya era del chat, lo dejo igual pero sin liarla) */
+  .chat-widget {
+    width: 90%;
+    right: 5%;
+    bottom: 70px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+/* ===============================
+   FOOTER (nuevo estilo "pro")
+   =============================== */
+
+.site-footer{
+  position: relative;
+  margin-top: 48px;
+  background: #0F172A;
+  color: #FAFCFF;
+  overflow: hidden;
+  border-top: 0;
+}
+
+/* Entrada superior en forma de U (recorte con el color del fondo de la página) */
+.site-footer::before{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -240px;                 /* sube el “recorte” para que se note la U */
+  transform: translateX(-50%);
+   width: 180%;;
+  height: 420px;               /* controla la profundidad de la U */
+  background: #FAFCFF;         /* color del fondo de tu web */
+  border-bottom-left-radius: 100% 100%;
+  border-bottom-right-radius: 100% 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Texto gigante de fondo */
+.footer-bg-text{
+  position: absolute;
+  left: 50%;
+  top: 52%;
+  transform: translate(-50%, -58%);
+  font-family: Archivo, Inter, Arial, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-size: clamp(120px, 18vw, 260px);
+  line-height: 0.9;
+  white-space: nowrap;            /* OP ART en una sola línea */
+  color: rgba(255, 0, 110, .16);  /* FF006E con opacidad */
+  text-shadow:
+    0 0 20px rgba(255, 0, 110, .40),
+    0 0 60px rgba(255, 0, 110, .22);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Contenido encima del fondo */
+.footer-wrap{
+  position: relative;
+  z-index: 2;
+  padding-top: 300px;   /* más espacio */
+  padding-bottom: 128px;
+}
+
+/* Grid superior */
+.footer-top{
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(250,252,255,.10);
+  box-shadow: 0 16px 60px rgba(0,0,0,.35);
+  backdrop-filter: blur(6px);
+}
+
+.footer-col{
+  min-width: 0;
+}
+
+.footer-col-head{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Iconos: mismo SVG en todas las columnas, “tint” a FF006E con filtro */
+.footer-icon{
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex: 0 0 auto;
+  filter: brightness(0) saturate(100%) invert(16%) sepia(94%) saturate(7305%) hue-rotate(320deg) brightness(101%) contrast(105%);
+  opacity: .95;
+}
+
+.footer-kicker{
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: .02em;
+  color: rgba(250,252,255,.72);
+}
+
+.footer-title{
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: .02em;
+  color: rgba(250,252,255,.78);
+}
+
+.footer-lead{
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(250,252,255,.86);
+}
+
+.footer-mini{
+  margin: 0 0 14px;
+  font-size: 15px;
+  color: rgba(250,252,255,.80);
+}
+
+/* Links */
+.footer-links{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.site-footer a{
+  color: #FAFCFF;
+  text-decoration: none;
+}
+
+.footer-links a{
+  color: rgba(250,252,255,.86);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.footer-links a:hover{
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Botones footer (menos “pastilla”, más pro) */
+.footer-actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Aumentamos el padding lateral para que parezca una pastilla */
+  padding: 10px 24px; 
+  
+  /* CAMBIO CLAVE: Usamos px en lugar de % para evitar el efecto rugby */
+  border-radius: 100px; 
+  
+  font-weight: 600;
+  border: 1px solid rgba(250, 252, 255, 0.16);
+  background: rgba(255, 255, 255, 0.04);
+  color: #FAFCFF;
+  text-decoration: none; /* Asegura que no tenga subrayado */
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+.footer-btn:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.07);
+  border-color: rgba(250,252,255,.22);
+}
+
+/* Parte inferior */
+.footer-bottom{
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+  padding: 14px 6px 0;
+  color: rgba(250,252,255,.70);
+}
+
+.site-footer .llotja-logo{
+  height: 28px;
+  width: auto;
+  display: block;
+  opacity: .92;
+}
+
+/* Redes */
+.footer-socials{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-socials .social-link{
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(250,252,255,.10);
+  transition: transform .2s ease, background-color .2s ease;
+}
+
+.footer-socials .social-link:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.07);
+}
+
+.footer-socials .social-link img{
+  width: 18px;
+  height: 18px;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: .92;
+}
+
+/* Botón “subir” */
+.footer-topbtn{
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(250,252,255,.12);
+  color: #FAFCFF;
+  transition: transform .2s ease, background-color .2s ease;
+}
+
+.footer-topbtn:hover{
+  transform: translateY(-2px);
+  background: rgba(255,255,255,.08);
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .footer-top{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 620px){
+  /* MÁS AIRE ARRIBA (para que el contenido no quede pegado a la U) */
+  .footer-wrap{
+    padding-top: 190px;   /* antes 120px -> subimos el contenido hacia abajo */
+    padding-bottom: 118px;
+  }
+
+  /* U MÁS ARRIBA y MÁS SUAVE (que no “se coma” el footer) */
+  .site-footer::before{
+    top: -300px;          /* antes -140px -> sube la U */
+    width: 220%;          /* más ancha para que parezca suave */
+    height: 360px;        /* un poco más alta para que el arco quede arriba */
+  }
+
+  /* OP ART centrado mejor en móvil (para que no invada el contenido) */
+  .footer-bg-text{
+    top: 22%;             /* antes 52% (general) -> lo bajamos un pelín */
+    font-size: clamp(110px, 28vw, 220px);
+    opacity: .95;         /* mantiene presencia sin comerse el texto */
+  }
+
+  .footer-top{
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .footer-bottom{
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 10px;
+  }
+}
+
