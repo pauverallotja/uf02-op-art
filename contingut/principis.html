@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OP ART — principis clau</title>
+
+<meta name="description" content="Web divulgativa sobre Op Art i art cinètic: principis, artistes i il·lusions interactives accessibles." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css" />
+
+</head>
+<body id="top" data-section="contingut">
+
+<header class="site-header" role="banner">
+  <a class="skip-link" href="#main">Saltar al contingut</a>
+
+  <div class="container nav-wrap">
+    <!-- BOTÓN HAMBURGUESA (solo móvil) -->
+    <button class="nav-toggle" type="button" aria-label="Obrir menú" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+
+    <!-- LOGO -->
+    <a class="logo" href="../index.html" aria-label="Inici — torna a la pàgina principal">
+      <img src="../assets/img/Logonegro.svg" alt="Patró geomètric 1">
+    </a>
+
+    <!-- NAV DESKTOP (se oculta en móvil) -->
+    <nav class="site-nav" aria-label="Navegació principal">
+      <ul>
+        <li><a href="../index.html" data-current="home">Inici</a></li>
+        <li><a href="index.html" data-current="contingut" aria-label="Contingut — principis, artistes i il·lusions interactives">Contingut</a></li>
+        <li><a href="../contacte.html" data-current="contacte">Contacte</a></li>
+      </ul>
+    </nav>
+
+    <!-- CTA DESKTOP (se oculta en móvil) -->
+    <a class="btn btn-cta" href="demos.html" aria-label="Obrir pàgina de demos interactives">Prova una demo</a>
+  </div>
+
+  <!-- PANEL MÓVIL (100vw x 50vh) -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a class="mobile-link" href="../index.html">Inici</a>
+      <a class="mobile-link" href="index.html">Contingut</a>
+      <a class="mobile-link" href="../contacte.html">Contacte</a>
+
+      <div class="mobile-actions">
+        <a class="footer-btn footer-btn-ghost" href="demos.html">Prova una demo</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACKDROP (click fuera = cerrar) -->
+  <div class="mobile-backdrop" aria-hidden="true"></div>
+</header>
+
+<main id="main" class="site-main container">
+  <nav aria-label="Fil d’Ariadna" class="breadcrumbs"><a href="../index.html">Inici</a> › <a href="index.html">Contingut</a> › <span aria-current="page">Principis</span></nav>
+  <h1>Principis</h1>
+  <nav class="inpage-nav roomy" aria-label="Índex de seccions">
+    <a href="#contrast">Contrast i freqüència</a>
+    <a href="#repeticio">Repetició i ritme</a>
+    <a href="#profunditat">Profunditat aparent</a>
+  </nav>
+
+  <section id="contrast" class="section block-with-aside">
+    <div class="block-main">
+      <h2>Contrast i freqüència</h2>
+      <p>El contrast (clar/fosc) i la freqüència espacial (densitat de línies o elements per unitat de longitud) modulen la vibració perceptiva: patrons més densos o de major contrast tendeixen a “bategar” amb més intensitat. Canvis lleus d’escala, gruix o separació entre línies poden fer emergir zones de repòs i zones d’inestabilitat.</p>
+      <p><a href="demos.html#moire">Veure demo relacionada: Moiré</a></p>
+      <p><a class="backtotop" href="#main">Tornar a dalt</a></p>
+    </div>
+    <img class="block-aside" loading="lazy" src="../assets/patterns/patron-moire.svg" alt="Exemple moiré">
+  </section>
+
+  <section id="repeticio" class="section block-with-aside">
+    <div class="block-main">
+      <h2>Repetició i ritme</h2>
+      <p>La reiteració d’un mòdul (línia, quadrat, punt) construeix ritmes visuals. Si introduïm micro-variacions (angle, fase o escala) el patró estable es trenca i sorgeix moviment aparent: la retina i les vies neuronals integren el canvi seqüencial com si fos desplaçament real.</p>
+      <p><a href="demos.html#damero">Veure demo relacionada: Damero</a></p>
+      <p><a class="backtotop" href="#main">Tornar a dalt</a></p>
+    </div>
+    <img class="block-aside" loading="lazy" src="../assets/patterns/patron-damero.svg" alt="Exemple damero">
+  </section>
+
+  <section id="profunditat" class="section block-with-aside">
+    <div class="block-main">
+      <h2>Profunditat aparent</h2>
+      <p>Sense estereoscòpia, podem evocar volum amb gradients de densitat, línies convergents i radials que suggereixen punt de fuga o deformació de l’espai. L’ull interpreta zones més denses com ombres o plans allunyats, i zones clares com plans propers.</p>
+      <p><a href="demos.html#radial">Veure demo relacionada: Radial</a></p>
+      <p><a class="backtotop" href="#main">Tornar a dalt</a></p>
+    </div>
+    <img class="block-aside" loading="lazy" src="../assets/patterns/Radial.svg" alt="Exemple radial">
+  </section>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-bg-text" aria-hidden="true">OP ART</div>
+
+  <div class="container footer-wrap">
+    <div class="footer-top">
+      <div class="footer-col footer-brand">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="../assets/img/info.svg" alt="" loading="lazy">
+          <p class="footer-kicker">Projecte divulgatiu</p>
+        </div>
+
+        <p class="footer-lead">
+          Projecte divulgatiu d’Op Art. Patrons i codi © Pau Vera.
+        </p>
+      </div>
+
+      <nav class="footer-col footer-nav" aria-label="Navegació peu">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="../assets/img/Navegació.svg" alt="" loading="lazy">
+          <p class="footer-title">Navegació</p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="../index.html">Inici</a></li>
+          <li><a href="index.html">Contingut</a></li>
+          <li><a href="../contacte.html">Contacte</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col footer-legal" aria-label="Enllaços legals">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="../assets/img/seguridad.svg" alt="" loading="lazy">
+          <p class="footer-title">Legal</p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="../privacitat.html">Privacitat</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col footer-contact">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="../assets/img/mail.svg" alt="" loading="lazy">
+          <p class="footer-title">Contacte</p>
+        </div>
+
+        <p class="footer-mini">
+          Tens dubtes o vols col·laborar?
+        </p>
+
+        <div class="footer-actions">
+<a class="footer-btn footer-btn-ghost" href="../contacte.html#contactForm">Demana cita</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <img class="llotja-logo" src="../assets/img/llotja.svg" loading="lazy" alt="Logo Llotja" />
+      </div>
+
+      <nav class="footer-socials" aria-label="Redes sociales">
+        <a class="social-link" href="#" title="YouTube"><img src="../assets/img/social/yt.svg" alt="YouTube"></a>
+        <a class="social-link" href="#" title="Instagram"><img src="../assets/img/social/ig.svg" alt="Instagram"></a>
+        <a class="social-link" href="#" title="Facebook"><img src="../assets/img/social/fb.svg" alt="Facebook"></a>
+        <a class="social-link" href="#" title="X (Twitter)"><img src="../assets/img/social/x.svg" alt="X (Twitter)"></a>
+        <a class="social-link" href="#" title="LinkedIn"><img src="../assets/img/social/linkedin.svg" alt="LinkedIn"></a>
+      </nav>
+
+      <a class="footer-topbtn" href="#top" aria-label="Tornar a dalt">↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js" defer></script>
+
+</body>
+</html>

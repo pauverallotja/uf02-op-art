@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OP ART — il·lusions interactives</title>
+
+<meta name="description" content="Web divulgativa sobre Op Art i art cinètic: principis, artistes i il·lusions interactives accessibles." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css" />
+
+</head>
+<body data-section="contingut">
+
+
+
+  
+
+<header class="site-header" role="banner">
+  <a class="skip-link" href="#main">Saltar al contingut</a>
+
+  <div class="container nav-wrap">
+    <!-- BOTÓN HAMBURGUESA (solo móvil) -->
+    <button class="nav-toggle" type="button" aria-label="Obrir menú" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="nav-toggle-lines" aria-hidden="true"></span>
+    </button>
+
+    <!-- LOGO -->
+    <a class="logo" href="../index.html" aria-label="Inici — torna a la pàgina principal">
+      <img src="../assets/img/Logonegro.svg" alt="Patró geomètric 1">
+    </a>
+
+    <!-- NAV DESKTOP (se oculta en móvil) -->
+    <nav class="site-nav" aria-label="Navegació principal">
+      <ul>
+        <li><a href="../index.html" data-current="home">Inici</a></li>
+        <li><a href="index.html" aria-current="page" data-current="contingut" aria-label="Contingut — principis, artistes i il·lusions interactives">Contingut</a></li>
+        <li><a href="../contacte.html" data-current="contacte">Contacte</a></li>
+      </ul>
+    </nav>
+
+    <!-- CTA DESKTOP (se oculta en móvil) -->
+    <a class="btn btn-cta" href="demos.html" aria-label="Obrir pàgina de demos interactives">Prova una demo</a>
+  </div>
+
+  <!-- PANEL MÓVIL (100vw x 50vh) -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <a class="mobile-link" href="../index.html">Inici</a>
+      <a class="mobile-link" href="index.html" aria-current="page">Contingut</a>
+      <a class="mobile-link" href="../contacte.html">Contacte</a>
+
+      <div class="mobile-actions">
+        <a class="footer-btn footer-btn-ghost" href="demos.html">Prova una demo</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BACKDROP (click fuera = cerrar) -->
+  <div class="mobile-backdrop" aria-hidden="true"></div>
+</header>
+
+
+
+
+
+
+<main id="main" class="site-main container">
+  <nav aria-label="Fil d’Ariadna" class="breadcrumbs"><a href="../index.html">Inici</a> › <a href="index.html">Contingut</a>  <span aria-current="page">Il·lusions interactives</span></nav>
+  <h1>Il·lusions interactives</h1>
+  
+  </div>
+
+
+
+  <section id="damero" class="demo section" aria-labelledby="damero-h2">
+
+    <h2 id="damero-h2">Damero</h2>
+    <p>Vibració per alternança de taulers. Ajusta la mida de casella.</p>
+    <div class="demo-canvas checker" role="img" aria-label="Patró de quadres blanc i negre"></div>
+    <div class="demo-controls">
+      <label for="sizeDamero">Mida cel·la (px)</label>
+      <input id="sizeDamero" type="range" min="8" max="120" value="40" />
+    </div>
+    <p><a href="../assets/patterns/patron-damero.svg" download>Descarregar patró (SVG)</a> · <a href="principis.html#repeticio">Llegir principis</a></p>
+  </section>
+  <section id="ones" class="demo section" aria-labelledby="ones-h2">
+    <h2 id="ones-h2">Ones</h2>
+    <p>Línies ondulades desfasades. Controla amplitud i separació.</p>
+    <div class="demo-canvas waves" role="img" aria-label="Patró de línies ondulades"></div>
+    <div class="demo-controls">
+      <label for="amp">Amplitud</label>
+      <input id="amp" type="range" min="2" max="30" value="12" />
+      <label for="gap">Espaiat</label>
+      <input id="gap" type="range" min="6" max="40" value="18" />
+    </div>
+  </section>
+  <section id="moire" class="demo section" aria-labelledby="moire-h2">
+    <h2 id="moire-h2">Moiré</h2>
+    <p>Interferència per superposició de ratlles; gira la capa superior.</p>
+    <div class="demo-canvas moire" role="img" aria-label="Dues capes de ratlles generant moiré"></div>
+    <div class="demo-controls">
+      <label for="angle">Angle (°)</label>
+      <input id="angle" type="range" min="-10" max="10" value="3" />
+      <label for="stripe">Gruix ratlla (px)</label>
+      <input id="stripe" type="range" min="1" max="12" value="3" />
+    </div>
+  </section>
+  <section id="radial" class="demo section" aria-labelledby="radial-h2">
+    <h2 id="radial-h2">Radial</h2>
+    <p>Línies des del centre; canvia densitat per percebre profunditat.</p>
+    <div class="demo-canvas radial" role="img" aria-label="Línies radials des del centre"></div>
+    <div class="demo-controls">
+      <label for="density">Densitat</label>
+      <input id="density" type="range" min="12" max="120" value="48" />
+    </div>
+  </section>
+  <p><a class="btn btn-link" href="index.html">Tornar a Contingut</a></p>
+</main>
+<script src="../assets/js/demos.js" defer></script>
+
+
+
+
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-bg-text" aria-hidden="true">OP ART</div>
+
+  <div class="container footer-wrap">
+    <div class="footer-top">
+      <div class="footer-col footer-brand">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="../assets/img/info.svg" alt="" loading="lazy">
+          <p class="footer-kicker">Projecte divulgatiu</p>
+        </div>
+
+        <p class="footer-lead">
+          Projecte divulgatiu d’Op Art. Patrons i codi © Pau Vera.
+        </p>
+      </div>
+
+      <nav class="footer-col footer-nav" aria-label="Navegació peu">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="../assets/img/Navegació.svg" alt="" loading="lazy">
+          <p class="footer-title">Navegació</p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="../index.html">Inici</a></li>
+          <li><a href="index.html">Contingut</a></li>
+          <li><a href="../contacte.html">Contacte</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer-col footer-legal" aria-label="Enllaços legals">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="../assets/img/seguridad.svg" alt="" loading="lazy">
+          <p class="footer-title">Legal</p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="../privacitat.html">Privacitat</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-col footer-contact">
+        <div class="footer-col-head">
+          <img class="footer-icon" src="../assets/img/mail.svg" alt="" loading="lazy">
+          <p class="footer-title">Contacte</p>
+        </div>
+
+        <p class="footer-mini">
+          Tens dubtes o vols col·laborar?
+        </p>
+
+        <div class="footer-actions">
+<a class="footer-btn footer-btn-ghost" href="../contacte.html#contactForm">Demana cita</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <img class="llotja-logo" src="../assets/img/llotja.svg" loading="lazy" alt="Logo Llotja" />
+      </div>
+
+      <nav class="footer-socials" aria-label="Redes sociales">
+        <a class="social-link" href="#" title="YouTube"><img src="../assets/img/social/yt.svg" alt="YouTube"></a>
+        <a class="social-link" href="#" title="Instagram"><img src="../assets/img/social/ig.svg" alt="Instagram"></a>
+        <a class="social-link" href="#" title="Facebook"><img src="../assets/img/social/fb.svg" alt="Facebook"></a>
+        <a class="social-link" href="#" title="X (Twitter)"><img src="../assets/img/social/x.svg" alt="X (Twitter)"></a>
+        <a class="social-link" href="#" title="LinkedIn"><img src="../assets/img/social/linkedin.svg" alt="LinkedIn"></a>
+      </nav>
+
+      <a class="footer-topbtn" href="#top" aria-label="Tornar a dalt">↑</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/js/main.js" defer></script>
+
+</body>
+</html>
